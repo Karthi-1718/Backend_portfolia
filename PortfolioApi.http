@@ -1,0 +1,38 @@
+@host = http://localhost:5080
+
+### Profile
+GET {{host}}/api/portfolio/profile
+
+### Skills
+GET {{host}}/api/portfolio/skills
+
+### Projects
+GET {{host}}/api/portfolio/projects
+
+### Education
+GET {{host}}/api/portfolio/education
+
+### Certifications
+GET {{host}}/api/portfolio/certifications
+
+### Send a contact message (valid)
+POST {{host}}/api/contact
+Content-Type: application/json
+
+{
+  "name": "Test Visitor",
+  "email": "visitor@example.com",
+  "subject": "Hello",
+  "message": "This is a test message from the .http file."
+}
+
+### Send a contact message (invalid, returns 400 with the problems)
+POST {{host}}/api/contact
+Content-Type: application/json
+
+{
+  "name": "",
+  "email": "not-an-email",
+  "subject": "",
+  "message": "short"
+}
